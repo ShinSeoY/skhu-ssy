@@ -5,4 +5,6 @@ for(let i=0;i<100;++i){
     a[i]=Math.floor(Math.random()*(max-min+1)+min);
 }
 a.sort((a,b)=>b-a);
-console.log(a);
+for(let i=0;i<a.length;i++){
+    console.log(a[i])
+}
