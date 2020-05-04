@@ -3,65 +3,38 @@
   <meta charset="utf-8" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <style>
-    div { padding: 30px; margin: 30px auto; max-width: 600px; 
+    div#app { padding: 20px; margin: 30px auto; max-width: 600px; 
       border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
-    table { border-collapse: collapse; margin: 40px auto; }
-    td { width: 50px; height: 50px; border: 1px solid gray; font-size: 20pt; 
-      text-align: center; cursor: pointer; }
+    label { font-size: 20pt; }
+    input[type=radio] { width: 20px; height: 20px; }
+    div#hello { margin: 30px; padding: 50px; 
+      background-color: #00ff9d; border: 1px solid gray; 
+      text-align: center; font-size: 20pt; }
   </style>
 </head>
 <body>
   <div id="app">
-    <table>
-      <tr v-for="(row, index1) in matrix" v-bind:key="index1">
-        <td v-for="(value, index2) in row" v-bind:key="index2" 
-             v-on:click="onClick(index1, index2)" v-bind:style="mybtn">
-          {{ value }}
-        </td>
-      </tr>
-    </table>
+    <label>
+      <input type="radio" v-bind:value="true" v-model="visible" />
+      show
+    </label>
+    <label>
+      <input type="radio" v-bind:value="false" v-model="visible" />
+      hide
+    </label>
+    <h1>visible: {{ visible }}</h1>
+    <h2>typeof visible: {{ typeof visible }}</h2>
+    <div id="hello" v-show="visible">Hello Vue.js</div>
   </div>
-
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-          mybtn:{
-              backgroundColor:'yellow'
-          },
-        size: 3,
-        matrix: [],
-        currentNumber: 1
-      },
-      created: function() {
-        this.lastNumber = this.size * this.size;
-        let a = [];
-        for (let i = 0; i < this.lastNumber; ++i)
-          a[i] = i + 1;
-        for (let r = 0; r < this.size; ++r) {
-          this.matrix[r] = [];
-          for (let c = 0; c < this.size; ++c) 
-            this.matrix[r][c] = a.shift();
-        }
-      },
-      methods: {
-        onClick: function(r, c) {
-          if (this.matrix[r][c] == this.currentNumber) {
-            this.matrix[r][c] = "";
-            this.$forceUpdate();
-          }
-        }
-      }        
+        visible: true
+      }
     })
-
-    function shuffleArray(a) {
-      for (let i = 0; i < a.length; ++i) {
-        let j = Math.floor(Math.random() * a.length);
-        [a[i], a[j]] = [a[j], a[i]];
-      }  
-    }    
    </script>
-</body>    
+</body>
 </html>
 
 

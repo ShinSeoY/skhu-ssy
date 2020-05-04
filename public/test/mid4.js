@@ -3,7 +3,6 @@ let A=[];
 function sum (...a){
     for(let i=0;i<a.length;i++){
     result+=a[i];}
-    
     return result;
 }
 let count=0;

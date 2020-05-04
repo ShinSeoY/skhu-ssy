@@ -2,19 +2,31 @@
 <head>
   <meta charset="utf-8" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  
+  <style>
+      div{width:400px; margin-left: auto;margin-right: auto;}
+      
+  </style>
 </head>
 <body>
   <div id="app">
-    <input type="button" value="보이기" v-on:click="run"/>
-    <input type="button" value="감추기" v-on:click="!run"/>
+    <input class="show" type="button" value="보이기"  v-on:click="run" v-bind:disabled="!value" />
+    <input class="hide" type="button" value="감추기"  v-on:click="stop" v-bind:disabled="value"/>
     
+    <label v-show="!value" v-model="value">ㅇ</label>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        visible: true
+        value:false
+      },
+      methods:{
+          run(){
+              this.value=false
+          },
+          stop(){
+              this.value=true
+          }
       }
     })    
    </script>
