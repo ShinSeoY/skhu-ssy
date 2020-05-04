@@ -4,7 +4,6 @@ function sum (...a){
     for(let i=0;i<a.length;++i)
     result+=a[i];
     return result;
-
 }
 let count=0;
 function test_sum(){
@@ -13,8 +12,7 @@ function test_sum(){
     for(let i=0;i<5;i++){
         A[i]=Math.floor(Math.random()*11);  
     }
-    console.log(A)
-    for()
+    console.log(A);
     console.log(sum(A));
      if(count==5)
     clearInterval(id);
