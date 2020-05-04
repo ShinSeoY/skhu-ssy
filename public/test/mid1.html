@@ -1,0 +1,32 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="number" />
+    <input type="submit" value="++" v-on:click="plus"/>
+    <input type="submit" value="--" v-on:click="minus"/>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        number:0
+      },
+      methods:{
+          minus(){
+            // let num=Integer.parseInt(this.number);
+            return this.number--
+          },
+          plus(){
+            return this.number++
+          }
+      }
+    })    
+   </script>
+</body>    
+</html>
+
