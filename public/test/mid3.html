@@ -6,13 +6,32 @@
 </head>
 <body>
   <div id="app">
-    
+    <input type="text" v-model="num"/>
+    <input type="button" value="생성" v-on:click="Random"/>
+    <table v-show="value">
+        <tr>
+            <td v-for="a in array">
+                {{a}}
+            </td>
+        </tr>
+    </table>
   </div>
   <script type="text/javascript">
     var app = new Vue({
       el: '#app',
       data: {
-        visible: true
+        array:[],
+        num:0,
+        value:false
+      },
+      methods:{
+          Random(){
+            
+            for(let i=0;i<this.num;i++){
+            this.array2[i]=Math.floor(Math.random()*10)}
+            this.array=this.array2.slice(0);
+            this.value=true;
+          }
       }
     })    
    </script>
