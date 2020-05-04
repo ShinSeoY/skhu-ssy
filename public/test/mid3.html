@@ -2,12 +2,17 @@
 <head>
   <meta charset="utf-8" />
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  
+ <style>
+     td{border: 1px solid ; padding:10px;}
+     table{margin:10px;border-spacing: 10px;}
+ </style> 
 </head>
 <body>
   <div id="app">
+    <span>
     <input type="text" v-model="num"/>
     <input type="button" value="생성" v-on:click="Random"/>
+    <span>
     <table v-show="value">
         <tr>
             <td v-for="a in array">
@@ -26,12 +31,15 @@
       },
       methods:{
           Random(){
-            
+            let array2=[];
             for(let i=0;i<this.num;i++){
-            this.array2[i]=Math.floor(Math.random()*10)}
-            this.array=this.array2.slice(0);
+            array2[i]=Math.floor(Math.random()*10)}
+            this.array=array2.slice(0);
             this.value=true;
-          }
+          },
+        //   enter(){
+        //       if(this.array.length=)
+        //   }
       }
     })    
    </script>
