@@ -14,11 +14,14 @@
     <input type="button" value="생성" v-on:click="Random"/>
     <span>
     <table v-show="value">
+        
         <tr>
+           
             <td v-for="a in array">
                 {{a}}
             </td>
         </tr>
+    
     </table>
   </div>
   <script type="text/javascript">
